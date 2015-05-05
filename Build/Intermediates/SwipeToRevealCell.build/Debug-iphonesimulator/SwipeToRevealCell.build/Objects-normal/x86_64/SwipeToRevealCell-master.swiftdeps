@@ -1,0 +1,6 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.49.3 clang-clang-602.0.49)"
+options: "973afa359f6857e78d5a01d231e5b7d6"
+inputs: 
+- "/Users/ronaldogomes/Documents/projects/iphone/SwipeToRevealCell/SwipeToRevealCell/ViewController.swift"
+- "/Users/ronaldogomes/Documents/projects/iphone/SwipeToRevealCell/SwipeToRevealCell/AppDelegate.swift"
+- "/Users/ronaldogomes/Documents/projects/iphone/SwipeToRevealCell/SwipeToRevealCell/SwipeCell.swift"
