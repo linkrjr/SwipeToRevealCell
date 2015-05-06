@@ -1,4 +1,4 @@
-version: "Apple Swift version 1.2 (swiftlang-602.0.49.3 clang-clang-602.0.49)"
-options: "dfebe0ef63af3aa940e1c719d0dea57e"
+version: "Apple Swift version 1.2 (swiftlang-602.0.49.6 clang-602.0.49)"
+options: "856e99573bf9a8c7e7fa7591354d719c"
 inputs: 
-- "/Users/ronaldogomes/Documents/projects/iphone/SwipeToRevealCell/SwipeToRevealCellTests/SwipeToRevealCellTests.swift"
+- "/Users/rongomes/Documents/projects/iphone/SwipeToRevealCell/SwipeToRevealCellTests/SwipeToRevealCellTests.swift"

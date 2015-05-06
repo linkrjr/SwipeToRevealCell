@@ -4,19 +4,19 @@ provides:
 nominals:
 - "C22SwipeToRevealCellTests22SwipeToRevealCellTests"
 class-members:
-- "setUp"
-- "testPerformanceExample"
 - "tearDown"
+- "testPerformanceExample"
+- "setUp"
 - "testExample"
 top-level:
-- "XCTestCase"
 - !private "StringLiteralType"
-- !private "BooleanLiteralType"
+- "XCTestCase"
 - !private "XCTAssert"
+- !private "BooleanLiteralType"
 member-access:
-- "CSo6XCTest"
 - "CSo10XCTestCase"
 - !private "C22SwipeToRevealCellTests22SwipeToRevealCellTests"
+- "CSo6XCTest"
 - "CSo8NSObject"
 - "PSs9AnyObject"
 dynamic-lookup:

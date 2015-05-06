@@ -12,42 +12,85 @@ class SwipeCell: UITableViewCell, UIScrollViewDelegate {
 
     let kRevealWidth:CGFloat = 160.0
     
-    @IBOutlet var scrollView:UIScrollView!
-    @IBOutlet var innerContentView:UIView!
-
+    var scrollView:UIScrollView! {
+        willSet {
+            self.scrollView?.removeFromSuperview()
+        }
+    }
+    var foregroundCell:UIView! {
+        willSet{
+            self.foregroundCell?.removeFromSuperview()
+        }
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
+    var backgroundCell:UIView! {
+        willSet{
+            self.backgroundCell?.removeFromSuperview()
+        }
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
+    
+    var foregroundRevealAmount:Int = 0 {
+        didSet{
+            self.setNeedsLayout()
+        }
+    }
+    
     var buttonContainerView:UIView!
     var moreButton:UIButton!
     var deleteButton:UIButton!
     
-    @IBOutlet var nameLabel:UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-        self.moreButton = UIButton.buttonWithType(.Custom) as! UIButton
-        self.moreButton.titleLabel?.font = UIFont.systemFontOfSize(14.0)
-        self.moreButton.backgroundColor = UIColor.grayColor()
-        self.moreButton.frame = CGRectMake(0.0 as CGFloat, 0.0 as CGFloat, kRevealWidth / 2, self.contentView.frame.size.height)
-        self.moreButton.setTitle("More...", forState: .Normal)
-
-        self.deleteButton = UIButton.buttonWithType(.Custom) as! UIButton
-        self.deleteButton.titleLabel?.font = UIFont.systemFontOfSize(14.0)
-        self.deleteButton.backgroundColor = UIColor.grayColor()
-        self.deleteButton.frame = CGRectMake(self.moreButton.frame.size.width as CGFloat, 0.0 as CGFloat, kRevealWidth / 2, self.contentView.frame.size.height)
-        self.deleteButton.setTitle("Delete", forState: .Normal)
+    override func layoutSubviews() {
+//        self.contentView.frame = self.bounds
+//        self.scrollView.contentSize = CGSizeMake(self.contentView.frame.size.width + kRevealWidth, self.scrollView.frame.size.height)
+//
+        super.layoutSubviews()
+        self.layoutScrollView()
+        self.layoutBackgroundCell()
+        self.layoutForegroundCell()
         
-        self.buttonContainerView = UIView(frame: CGRectMake(0, 0, kRevealWidth, self.moreButton.frame.size.height))
-        self.buttonContainerView.addSubview(self.moreButton)
-        self.buttonContainerView.addSubview(self.deleteButton)
+//        self.scrollView.addSubview(self.foregroundCell)
         
-        self.contentView.addSubview(self.buttonContainerView)
+
+//
+//        self.repositionButtons()
         
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    private func layoutBackgroundCell() {
+        let backgroundCellFrame = CGRectMake(CGRectGetWidth(self.bounds) - 160, 0, 160, CGRectGetHeight(self.bounds))
+        self.backgroundCell.frame = backgroundCellFrame
+        self.scrollView.addSubview(self.backgroundCell)
     }
+
+    private func layoutForegroundCell() {
+        let foregroundCellFrame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))
+        self.foregroundCell.backgroundColor = UIColor.whiteColor()
+        self.foregroundCell.frame = foregroundCellFrame
+        self.scrollView.addSubview(self.foregroundCell)
+    }
+    
+    private func layoutScrollView() {
+        let scrollViewFrame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))
+        let scrollViewContentSize = CGSizeMake(CGRectGetWidth(self.bounds) + 160, CGRectGetHeight(self.bounds))
+        self.scrollView = UIScrollView(frame: scrollViewFrame)
+        self.scrollView.backgroundColor = UIColor.whiteColor()
+        self.scrollView.contentSize = scrollViewContentSize
+        self.scrollView.delegate = self
+        self.scrollView.showsHorizontalScrollIndicator = false
+        self.contentView.addSubview(self.scrollView)
+    }
+
+//    private func repositionButtons() {
+//        var frame = self.buttonContainerView.frame
+//        frame.origin.x = self.contentView.frame.size.width - kRevealWidth + self.scrollView.contentOffset.x
+//        self.buttonContainerView.frame = frame
+//    }
+    
 
 }

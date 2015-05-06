@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/rongomes/Documents/projects/iphone/SwipeToRevealCell/Build/Products/Debug-iphonesimulator/Pods.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Pods-Swift.h",
+          'external-contents': "/Users/rongomes/Documents/projects/iphone/SwipeToRevealCell/Build/Products/Debug-iphonesimulator/Pods.framework/Headers/Pods-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Pods-umbrella.h",
+          'external-contents': "/Users/rongomes/Documents/projects/iphone/SwipeToRevealCell/Pods/Target Support Files/Pods/Pods-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/rongomes/Documents/projects/iphone/SwipeToRevealCell/Build/Products/Debug-iphonesimulator/Pods.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/rongomes/Documents/projects/iphone/SwipeToRevealCell/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

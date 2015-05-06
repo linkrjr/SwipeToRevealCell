@@ -28,7 +28,13 @@ class ViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SwipeCell
-        cell.nameLabel.text = self.content[indexPath.row]
+        let foregroundCell = tableView.dequeueReusableCellWithIdentifier("ForegroundCell") as! UITableViewCell
+        let backgroundCell = tableView.dequeueReusableCellWithIdentifier("BackgroundCell") as! UITableViewCell
+        
+        cell.foregroundCell = foregroundCell
+        cell.backgroundCell = backgroundCell
+        foregroundCell.textLabel?.text = self.content[indexPath.row]
+        
         return cell
     }
 
